@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_threerains_pushnotifications</name>
+    <creationDate>2014-04-03</creationDate>
+    <copyright>Copyright (C) 2014. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>3rains</author>
+    <authorEmail>info@3rains.net</authorEmail>
+    <authorUrl>http://3rains.net</authorUrl>
+    <version>1.0.0</version>
+    <description>This component extends the back end to the push notification feature</description>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>threerains_pushnotifications.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <languages folder="site">
+        
+			<language tag="en-GB">language/en-GB.com_threerains_pushnotifications.ini</language>
+			<language tag="it-IT">language/it-IT.com_threerains_pushnotifications.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_threerains_pushnotifications/assets/images/s_com_threerains_pushnotifications.png" >COM_THREERAINS_PUSHNOTIFICATIONS</menu>
+        <submenu>
+            
+			<menu link="option=com_threerains_pushnotifications&amp;view=messagess" view="messagess" img="components/com_threerains_pushnotifications/assets/images/s_messagess.png" alt="Threerains_pushnotifications/Messagess">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_MESSAGESS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=sent_messages" view="sent_messages" img="components/com_threerains_pushnotifications/assets/images/s_sent_messages.png" alt="Threerains_pushnotifications/Sent_messages">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_SENT_MESSAGES</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=devices" view="devices" img="components/com_threerains_pushnotifications/assets/images/s_devices.png" alt="Threerains_pushnotifications/Devices">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_DEVICES</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=oss" view="oss" img="components/com_threerains_pushnotifications/assets/images/s_oss.png" alt="Threerains_pushnotifications/Oss">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_OSS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=deviceslists" view="deviceslists" img="components/com_threerains_pushnotifications/assets/images/s_deviceslists.png" alt="Threerains_pushnotifications/Deviceslists">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_DEVICESLISTS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=subscribers" view="subscribers" img="components/com_threerains_pushnotifications/assets/images/s_subscribers.png" alt="Threerains_pushnotifications/Subscribers">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_SUBSCRIBERS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=deviceslogs" view="deviceslogs" img="components/com_threerains_pushnotifications/assets/images/s_deviceslogs.png" alt="Threerains_pushnotifications/Deviceslogs">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_DEVICESLOGS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=languages" view="languages" img="components/com_threerains_pushnotifications/assets/images/s_languages.png" alt="Threerains_pushnotifications/Languages">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_LANGUAGES</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=scheduledtasks" view="scheduledtasks" img="components/com_threerains_pushnotifications/assets/images/s_scheduledtasks.png" alt="Threerains_pushnotifications/Scheduledtasks">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_SCHEDULEDTASKS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=segments" view="segments" img="components/com_threerains_pushnotifications/assets/images/s_segments.png" alt="Threerains_pushnotifications/Segments">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_SEGMENTS</menu>
+
+			<menu link="option=com_threerains_pushnotifications&amp;view=appversions" view="appversions" img="components/com_threerains_pushnotifications/assets/images/s_appversions.png" alt="Threerains_pushnotifications/Appversions">COM_THREERAINS_PUSHNOTIFICATIONS_TITLE_APPVERSIONS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>threerains_pushnotifications.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="administrator">
+            
+			<language tag="en-GB">language/en-GB.com_threerains_pushnotifications.ini</language>
+			<language tag="en-GB">language/en-GB.com_threerains_pushnotifications.sys.ini</language>
+			<language tag="it-IT">language/it-IT.com_threerains_pushnotifications.ini</language>
+			<language tag="it-IT">language/it-IT.com_threerains_pushnotifications.sys.ini</language>
+        </languages>
+    </administration>
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

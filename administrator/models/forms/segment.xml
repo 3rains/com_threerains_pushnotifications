@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_CREATED_BY"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_CREATED_BY"  /> 
+
+ <field name="filter_os" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_FILTER_OS"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_FILTER_OS" input_type="list" table="#__threerains_pushnotifications_os" key_field="id" value_field="name" multiple="multiple"/> 
+
+       <field name="filter_filter_os" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select filter_os -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__threerains_pushnotifications_os`" key_field="id" value_field="val"
+             /> 
+
+ <field name="filter_devices" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_FILTER_DEVICES"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_FILTER_DEVICES" input_type="list" table="#__threerains_pushnotifications_devices" key_field="id" value_field="label" multiple="multiple"/> 
+
+       <field name="filter_filter_devices" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select filter_devices -' AS `val` UNION SELECT `id`, `label` AS val FROM `#__threerains_pushnotifications_devices`" key_field="id" value_field="val"
+             /> 
+
+ <field name="filter_list" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_FILTER_LIST"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_FILTER_LIST" input_type="list" table="#__threerains_pushnotifications_devices_lists" key_field="id" value_field="list_name" multiple="multiple"/> 
+
+       <field name="filter_filter_list" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select filter_list -' AS `val` UNION SELECT `id`, `list_name` AS val FROM `#__threerains_pushnotifications_devices_lists`" key_field="id" value_field="val"
+             /> 
+
+ <field name="filter_language" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_FILTER_LANGUAGE"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_FILTER_LANGUAGE" input_type="list" table="#__threerains_pushnotifications_languages" key_field="id" value_field="code" multiple="multiple"/> 
+
+       <field name="filter_filter_language" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select filter_language -' AS `val` UNION SELECT `id`, `code` AS val FROM `#__threerains_pushnotifications_languages`" key_field="id" value_field="val"
+             /> 
+
+       <field name="filter_appunused" type="text"
+                
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_FILTER_APPUNUSED"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_FILTER_APPUNUSED" 
+                
+                
+                
+            filter="int" /> 
+
+       <field name="name" type="text"
+                
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SEGMENT_NAME"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SEGMENT_NAME" 
+                 default="Segment name" 
+                
+                 required="true" 
+            maxlength="50" /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" /> 
+
+ </fieldset> 
+
+ <fieldset 
+                        name="accesscontrol">
+                       <field name="asset_id" type="hidden" filter="unset" />
+                       <field name="rules"
+                            type="rules"
+                            label="JFIELD_RULES_LABEL"
+                            translate_label="false"
+                            filter="rules"
+                            validate="rules"
+                            class="inputbox"
+                            component="com_threerains_pushnotifications"
+                            section="segment"
+                        />
+
+	</fieldset>
+
+</form>

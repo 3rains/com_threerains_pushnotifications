@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_CREATED_BY"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_CREATED_BY"  /> 
+
+       <field name="token" type="editor" buttons="true"
+        class="inputbox"
+        filter="safehtml"
+        
+        
+        
+        
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_TOKEN"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_TOKEN"  /> 
+
+ <field name="osid" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_OSID"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_OSID" input_type="list" table="#__threerains_pushnotifications_os" key_field="id" value_field="name" /> 
+
+       <field name="filter_osid" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select osid -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__threerains_pushnotifications_os`" key_field="id" value_field="val"
+             /> 
+
+       <field name="label" type="text"
+                
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_LABEL"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_LABEL" 
+                
+                
+                 /> 
+
+ <field name="language" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_LANGUAGE"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_LANGUAGE" input_type="list" table="#__threerains_pushnotifications_languages" key_field="id" value_field="name" /> 
+
+       <field name="filter_language" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select language -' AS `val` UNION SELECT `id`, `name` AS val FROM `#__threerains_pushnotifications_languages`" key_field="id" value_field="val"
+             /> 
+
+ <field name="app_version" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_APP_VERSION"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_APP_VERSION" input_type="list" table="#__threerains_pushnotifications_app_versions" key_field="id" value_field="version_code" /> 
+
+       <field name="filter_app_version" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select app_version -' AS `val` UNION SELECT `id`, `version_code` AS val FROM `#__threerains_pushnotifications_app_versions`" key_field="id" value_field="val"
+             /> 
+
+       <field name="model" type="text"
+                
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_MODEL"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_MODEL" 
+                
+                
+                 /> 
+
+       <field name="udid" type="text"
+                
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_DEVICE_UDID"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_DEVICE_UDID" 
+                
+                
+                 required="true"  /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" /> 
+
+ </fieldset> 
+
+ <fieldset 
+                        name="accesscontrol">
+                       <field name="asset_id" type="hidden" filter="unset" />
+                       <field name="rules"
+                            type="rules"
+                            label="JFIELD_RULES_LABEL"
+                            translate_label="false"
+                            filter="rules"
+                            validate="rules"
+                            class="inputbox"
+                            component="com_threerains_pushnotifications"
+                            section="device"
+                        />
+
+	</fieldset>
+
+</form>

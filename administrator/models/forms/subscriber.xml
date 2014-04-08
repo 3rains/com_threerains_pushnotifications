@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SUBSCRIBER_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SUBSCRIBER_CREATED_BY"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SUBSCRIBER_CREATED_BY"  /> 
+
+ <field name="device_id" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SUBSCRIBER_DEVICE_ID"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SUBSCRIBER_DEVICE_ID" input_type="list" table="#__threerains_pushnotifications_devices" key_field="id" value_field="id" /> 
+
+       <field name="filter_device_id" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select device_id -' AS `val` UNION SELECT `id`, `id` AS val FROM `#__threerains_pushnotifications_devices`" key_field="id" value_field="val"
+             /> 
+
+ <field name="list_id" type="foreignkey" class="inputbox"
+            label="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_LBL_SUBSCRIBER_LIST_ID"
+            description="COM_THREERAINS_PUSHNOTIFICATIONS_FORM_DESC_SUBSCRIBER_LIST_ID" input_type="list" table="#__threerains_pushnotifications_devices_lists" key_field="id" value_field="list_name" /> 
+
+       <field name="filter_list_id" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `id`, '- Please select list_id -' AS `val` UNION SELECT `id`, `list_name` AS val FROM `#__threerains_pushnotifications_devices_lists`" key_field="id" value_field="val"
+             /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" /> 
+
+ </fieldset> 
+
+ <fieldset 
+                        name="accesscontrol">
+                       <field name="asset_id" type="hidden" filter="unset" />
+                       <field name="rules"
+                            type="rules"
+                            label="JFIELD_RULES_LABEL"
+                            translate_label="false"
+                            filter="rules"
+                            validate="rules"
+                            class="inputbox"
+                            component="com_threerains_pushnotifications"
+                            section="subscriber"
+                        />
+
+	</fieldset>
+
+</form>
